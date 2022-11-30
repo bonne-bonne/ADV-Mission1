@@ -46,7 +46,7 @@ const pageCount= Math.ceil(props.searchResults.length / searchResultsPerPage);
             <main className={styles.main_outer_container}>
                 <div className={styles.search_outer_container}>
 
-                    {props.searchLength <= 1 ? <p>Sorry no search results found.</p> : 
+                    {props.searchLength <= 1 || !props.searchLength ? <p className={styles.error_message}>Sorry no search results were found.</p> : 
                     
                     <div className={styles.search_result_item}>
                         {/* <p>Search results for {props.inputSearchValue}</p> */}
