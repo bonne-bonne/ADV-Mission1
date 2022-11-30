@@ -6,16 +6,14 @@ import { useState } from 'react'
 
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
   Routes,
-  Link
 } from "react-router-dom";
 
 
 function App() {
   const [inputSearchValue, setInputSearchValue]= useState("")
-  const [searchResults, setSearchResults]= useState()
+  const [searchResults, setSearchResults]= useState([])
   const [searchLength, setSearchLength]= useState("")
   const [numOfResultsPages, setNumOfResultsPages] = useState(0)
   const uri = encodeURI(inputSearchValue);
