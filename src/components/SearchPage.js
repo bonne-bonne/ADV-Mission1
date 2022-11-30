@@ -17,6 +17,7 @@ const searchResultsPerPage = 5;
 const searchResultIndex = currentPage * searchResultsPerPage;
 
 
+
 const displaySearchResults = props.searchResults.slice(searchResultIndex, searchResultIndex + searchResultsPerPage).map((result, index) =>{
     return (
         <div key={index} className={styles.individual_result}>
@@ -37,23 +38,36 @@ const pageCount= Math.ceil(props.searchResults.length / searchResultsPerPage);
 // const blah = props.inputSearchValue[0].toUpperCase() + props.inputSearchValue.slice(1)
 
   //  ===========================================================================================================//
- 
+  function example() {
+     props.searchLength <=1 ? <p className={styles.error_message}>Sorry no search results were found.</p>
+          : !props.searchLength ? <p className={styles.error_message}>Sorry no search results were found.</p>
+          : <p className={styles.error_message}>Search results found.</p>
+  }
+
+
+
+
+  //++++++++++++++
 
   return (
     <div>
-        <Header handleSearch={props.handleSearch} setInputSearchValue={props.setInputSearchValue} />
+        <Header handleSearch={props.handleSearch} setInputSearchValue={props.setInputSearchValue} handleEnter={props.handleEnter}/>
 
             <main className={styles.main_outer_container}>
                 <div className={styles.search_outer_container}>
 
-                    {props.searchLength <= 1 || !props.searchLength ? <p className={styles.error_message}>Sorry no search results were found.</p> : 
+                    {props.searchLength <= 1 ? <p className={styles.error_message}>Sorry no search results were found.</p> : 
                     
                     <div className={styles.search_result_item}>
-                        {/* <p>Search results for {props.inputSearchValue}</p> */}
+
                         {props.searchResults ? displaySearchResults : "" }
 
                     </div> }
                     
+
+                     {example}
+
+            
                    
                         
     
@@ -83,3 +97,10 @@ const pageCount= Math.ceil(props.searchResults.length / searchResultsPerPage);
 
 
 
+// {props.searchLength <= 1 || !props.searchLength ? <p className={styles.error_message}>Sorry no search results were found.</p> : 
+                    
+// <div className={styles.search_result_item}>
+//     {/* <p>Search results for {props.inputSearchValue}</p> */}
+//     {props.searchResults ? displaySearchResults : "" }
+
+// </div> }

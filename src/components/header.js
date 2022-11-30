@@ -31,8 +31,8 @@ export default function header(props) {
             <p>Services & Info</p>
             <div className={styles.searchbar}>
               <input type="text" className={styles.input} placeholder="Search..." onChange={(e) =>{
-        props.setInputSearchValue(e.target.value)
-      }} />
+        props.setInputSearchValue(e.target.value) 
+      }} onKeyDown={props.handleEnter} />
               <Link to="/search" className={styles.search_btn}><div className={styles.search_btn} onClick={props.handleSearch}><img src={mag} className={styles.search_icon} alt="search icon" /></div></Link>
             </div>
         </div>

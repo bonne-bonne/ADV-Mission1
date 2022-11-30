@@ -46,7 +46,11 @@ function App() {
       })
   }
   
-  
+  const handleEnter= (e) =>{
+    if(e.key === "Enter"){
+      handleSearch()
+    }
+  }
   
   
   
@@ -58,8 +62,8 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Home handleSearch={handleSearch}  setInputSearchValue={setInputSearchValue}/>}></Route>
-          <Route path="/search" element={<Search handleSearch={handleSearch} setInputSearchValue={setInputSearchValue} searchResults={searchResults} inputSearchValue={inputSearchValue}  numOfResultsPages={numOfResultsPages}/>}></Route>
+          <Route path="/" element={<Home handleSearch={handleSearch}  setInputSearchValue={setInputSearchValue} handleEnter={handleEnter}/>}></Route>
+          <Route path="/search" element={<Search handleSearch={handleSearch} setInputSearchValue={setInputSearchValue} searchResults={searchResults} inputSearchValue={inputSearchValue}  numOfResultsPages={numOfResultsPages} handleEnter={handleEnter}/>}></Route>
           </Routes>
       </Router>
     </div>

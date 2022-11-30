@@ -6,7 +6,7 @@ import Footer from "./footer"
 export default function Home(props) {
   return (
     <div>
-      <Header handleSearch={props.handleSearch} setInputSearchValue={props.setInputSearchValue}/>
+      <Header handleSearch={props.handleSearch} setInputSearchValue={props.setInputSearchValue} handleEnter={props.handleEnter}/>
       <Main />
       <Footer />
 
