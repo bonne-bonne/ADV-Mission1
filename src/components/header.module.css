@@ -44,3 +44,40 @@
     font-weight: 700;
 }
 
+.searchbar{
+    display: flex;
+    align-items: center;
+    height: 1.6rem;
+}
+
+.input{
+    outline: none;
+    border: none;
+    height: 100%;
+    width: 15rem;
+    padding: 0 .5rem;
+    border-radius: .5rem 0rem 0rem 0.5rem;
+}
+
+.search_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(44, 120, 191);
+    height: 100%;
+    width: 2rem;
+    border-radius: 0rem 0.5rem 0.5rem 0rem;
+    transition: all .5s;
+}
+
+.search_btn:hover{
+    background-color: rgb(19, 80, 137);
+}
+
+.search_btn:active{
+    background-color: rgb(12, 56, 97);
+}
+
+.search_icon{
+    height: .8rem;
+}
