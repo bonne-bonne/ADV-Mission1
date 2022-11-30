@@ -15,12 +15,14 @@
     flex-direction: column;
     /* align-items: flex-start; */
     background-color: rgb(255, 255, 255);
+    
 
     width: 90%;
     /* height: 100%; */
     height: 100%;
     min-height: 80vh;
     padding: 5rem;
+    position: relative;
     /* border: 3px solid red; */
 
 }
@@ -47,10 +49,14 @@
     justify-content: center;
     align-items: center;
     align-self: center;
+    justify-self: flex-end;
     width: 80%;
     height: 3rem;
     /* background-color: rgb(211, 211, 251); */
     list-style: none;
+
+    position: absolute;
+    bottom: 4rem;
 }
 
 .pagination_container a {
@@ -89,4 +95,8 @@
 .disabled_btn a:hover{
     background-color: rgba(255, 255, 255, 0);
     color: rgb(27, 99, 165);
+}
+
+.individual_result{
+    margin-bottom: 3rem;
 }

@@ -14,7 +14,7 @@ import {
 function App() {
   const [inputSearchValue, setInputSearchValue]= useState("")
   const [searchResults, setSearchResults]= useState([])
-  const [searchLength, setSearchLength]= useState("")
+  const [searchLength, setSearchLength]= useState(0)
   const [numOfResultsPages, setNumOfResultsPages] = useState(0)
   const uri = encodeURI(inputSearchValue);
   const subscriptionKey= process.env.REACT_APP_KEY;

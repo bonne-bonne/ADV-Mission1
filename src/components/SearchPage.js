@@ -1,50 +1,43 @@
 import React from 'react'
 import { useState } from 'react'
-import Header from "./header"
 import ReactPaginate from 'react-paginate';
-
-
-
-import Footer from "./footer"
 import styles from './SearchPage.module.css'
+
+//Component imports
+import Header from "./header"
+import Footer from "./footer"
+
+
 
 export default function SearchPage(props) {
 
- 
+// ============================= PAGINATION SET UP =================================//
+const [currentPage, setCurrentPage] = useState(0);
+const searchResultsPerPage = 5;
+const searchResultIndex = currentPage * searchResultsPerPage;
 
-    // ====================
-const [currentPage, setCurrentPage] = useState(0) // maybe should be one instead? He calls it pageNumber
-
-
-const searchResultsPerPage = 10;
-const searchResultIndex = currentPage * searchResultsPerPage
-
-// const pageCount = 3
 
 const displaySearchResults = props.searchResults.slice(searchResultIndex, searchResultIndex + searchResultsPerPage).map((result, index) =>{
     return (
-        <div key={index}>
-            <img src={result.thumbnailUrl} className="image" alt="search result"/>
+        <div key={index} className={styles.individual_result}>
+            {/* <img src={result.thumbnailUrl} className="image" alt="search result"/> */}
             <h3><a href={result.url}>{result.name}</a></h3>
             <p>{result.snippet}</p>
             <p><a href={result.url} className={styles.bottom_url_link}>{result.displayUrl}</a></p>
         </div>
     )
-})
+});
 
 const changePage = ({selected}) => {
+    // console.log(props.inputSearchValue[0])
     setCurrentPage(selected)
-}
+};
 
+const pageCount= Math.ceil(props.searchResults.length / searchResultsPerPage);
+// const blah = props.inputSearchValue[0].toUpperCase() + props.inputSearchValue.slice(1)
 
-// function handleSlice(e) {
-//     const numOfPages = Math.ceil(props.searchLength / 10)
-//     setSlice1(e.currentTarget.n1)
-//     console.log(e.currentTarget.n1)
-// }
-const pageCount= Math.ceil(props.searchResults.length / searchResultsPerPage)
-  //  =============== 
-
+  //  ===========================================================================================================//
+ 
 
   return (
     <div>
@@ -53,28 +46,17 @@ const pageCount= Math.ceil(props.searchResults.length / searchResultsPerPage)
             <main className={styles.main_outer_container}>
                 <div className={styles.search_outer_container}>
 
-                    {props.searchLength <= 1 ? <p>Sorry no search results found.</p> : <p>Search results for {props.inputSearchValue}</p>}
+                    {props.searchLength <= 1 ? <p>Sorry no search results found.</p> : 
+                    
                     <div className={styles.search_result_item}>
-                        {/* {props.searchResults ? props.searchResults.slice(n1, n2).map((result, index) => {
-                            return(
-                            <div key={index}>
-                            <img src={result.thumbnailUrl} className="image"/>
-                            <h3><a href={result.url}>{result.name}</a></h3>
-                            <p>{result.snippet}</p>
-                            <p><a href={result.url} className={styles.bottom_url_link}>{result.displayUrl}</a></p>
-                            </div>
-                            )
-                        }) : ""} */}
-
+                        {/* <p>Search results for {props.inputSearchValue}</p> */}
                         {props.searchResults ? displaySearchResults : "" }
-                    </div>
-                        
-                        {/* <h1>Pages: {pageArray.map((page, index) => {
-                            return(
-                                <div key={index} onClick={handleSlice} n1={page.numberN1} n2={page.numberN2}>{page.pageNumberIs}</div>
-                            )
 
-                        })}</h1> */}
+                    </div> }
+                    
+                   
+                        
+    
 
                         <ReactPaginate 
                             previousLabel= {"Prev"}
